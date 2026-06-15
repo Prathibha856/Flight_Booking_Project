@@ -1,96 +1,284 @@
-# Flight Booking Project
+# ✈️ Flight Booking Data Analysis Project
 
-## Overview
-This project performs comprehensive data analysis and visualization of flight booking data. It explores patterns in airline pricing, routes, schedules, and booking trends to provide insights into the flight booking market.
+## 📖 About the Project
 
-## Project Structure
-```
-Flight_Booking_Project/
-├── README.md                      # Project documentation
-├── Flight_Booking_Project.ipynb   # Main Jupyter notebook with analysis
-└── Flight_Booking.csv             # Flight booking dataset
-```
+Have you ever wondered why flight ticket prices change so frequently? Why does the same route cost different amounts on different days or airlines?
 
-## Dataset
-The dataset contains information about flight bookings with the following columns:
-- **airline**: Name of the airline (SpiceJet, AirAsia, Vistara, GO_FIRST, etc.)
-- **flight**: Flight number/code
-- **source_city**: Departure city
-- **departure_time**: Time of departure (Early_Morning, Morning, Afternoon, Evening, Night)
-- **stops**: Number of stops (zero, one, two_or_more)
-- **arrival_time**: Time of arrival
-- **destination_city**: Destination city
-- **class**: Cabin class (Economy, Business)
-- **duration**: Flight duration in hours
-- **days_left**: Days until departure
-- **price**: Flight ticket price in currency units
+This project explores these questions through a complete Exploratory Data Analysis (EDA) workflow on real flight booking data. Using Python and popular data analysis libraries, we uncover hidden patterns in airline pricing, travel routes, departure schedules, flight duration, and booking behavior.
 
-## Requirements
-The project requires the following Python libraries:
-- numpy
-- pandas
-- matplotlib
-- seaborn
-
-## Installation
-1. Clone or download this repository
-2. Install required packages:
-   ```bash
-   pip install numpy pandas matplotlib seaborn
-   ```
-3. Open the Jupyter notebook in Jupyter Lab or Jupyter Notebook:
-   ```bash
-   jupyter notebook Flight_Booking_Project.ipynb
-   ```
-
-## Analysis Overview
-The notebook performs the following analyses:
-
-1. **Data Loading & Cleaning**
-   - Load flight data from CSV
-   - Remove unnecessary columns
-   - Handle missing values
-   - Remove duplicate records
-
-2. **Exploratory Data Analysis (EDA)**
-   - Dataset shape and structure
-   - Data types and info
-   - Statistical summaries
-   - Unique values per feature
-
-3. **Visualizations**
-   - Price distributions
-   - Airline comparisons
-   - Route analysis
-   - Departure time patterns
-   - Duration analysis
-   - Cabin class pricing
-   - Travel time vs. price relationships
-
-4. **Insights & Findings**
-   - Price trends across airlines
-   - Most expensive/cheapest routes
-   - Peak booking patterns
-   - Correlation analysis between features
-
-## Usage
-1. Open the notebook file `Flight_Booking_Project.ipynb`
-2. Run cells sequentially to load and analyze the data
-3. Visualizations and summary statistics will be displayed in the notebook
-
-## Key Findings
-- Analysis of pricing patterns across different airlines
-- Impact of departure time on ticket prices
-- Relationship between flight duration and cost
-- Seasonal patterns in booking availability (days_left)
-- Class-wise pricing differences
-
-## Author
-Flight Booking Analysis Project
-
-## License
-This project is open source and available for educational and research purposes.
+The goal is to transform raw flight booking data into meaningful business insights that can help airlines optimize pricing strategies, improve customer experience, and understand travel demand trends.
 
 ---
-**Note**: Ensure the `Flight_Booking.csv` file is in the same directory as the notebook for proper execution.
-#
+
+## 🎯 Project Objectives
+
+* Analyze airline ticket pricing patterns.
+* Compare fare structures across airlines.
+* Understand how flight duration affects ticket prices.
+* Identify the impact of departure and arrival timings.
+* Explore route popularity and pricing trends.
+* Study the influence of cabin class and number of stops.
+* Generate actionable business insights through visualization.
+
+---
+
+## 📂 Project Structure
+
+```text
+Flight_Booking_Project/
+├── README.md                      # Project Documentation
+├── Flight_Booking_Project.ipynb   # Jupyter Notebook containing analysis
+└── Flight_Booking.csv             # Dataset
+```
+
+---
+
+## 📊 Dataset Information
+
+The dataset contains **10,683 flight booking records** with information such as:
+
+| Feature          | Description                     |
+| ---------------- | ------------------------------- |
+| airline          | Airline name                    |
+| flight           | Flight code                     |
+| source_city      | Departure city                  |
+| departure_time   | Flight departure slot           |
+| stops            | Number of stops                 |
+| arrival_time     | Arrival slot                    |
+| destination_city | Destination city                |
+| class            | Economy or Business             |
+| duration         | Flight duration (hours)         |
+| days_left        | Days remaining before departure |
+| price            | Ticket price                    |
+
+---
+
+## 🛠️ Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Jupyter Notebook
+
+---
+
+## 🔄 Project Workflow
+
+### 1️⃣ Data Collection
+
+* Import dataset
+* Load CSV file into Pandas DataFrame
+
+### 2️⃣ Data Cleaning
+
+* Remove duplicates
+* Handle missing values
+* Verify data types
+* Eliminate unnecessary columns
+
+### 3️⃣ Exploratory Data Analysis (EDA)
+
+* Dataset overview
+* Statistical summaries
+* Feature analysis
+* Price trend analysis
+
+### 4️⃣ Data Visualization
+
+* Histograms
+* Count plots
+* Box plots
+* Heatmaps
+* Correlation analysis
+* Comparative airline charts
+
+### 5️⃣ Business Insights
+
+* Airline pricing behavior
+* Route performance analysis
+* Impact of booking time on ticket prices
+* Duration vs Price relationship
+
+---
+
+## 📈 Key Visualizations
+
+The notebook includes:
+
+### Airline-wise Price Comparison
+
+Understand which airlines offer premium or budget pricing.
+
+### Cabin Class Analysis
+
+Compare Economy and Business class fares.
+
+### Route Analysis
+
+Identify expensive and affordable travel routes.
+
+### Departure Time Trends
+
+Analyze how departure schedules affect pricing.
+
+### Correlation Heatmap
+
+Visualize relationships between numerical features.
+
+### Flight Duration vs Ticket Price
+
+Study whether longer flights cost significantly more.
+
+---
+
+## 🔍 Major Insights
+
+✔️ Business-class tickets are significantly more expensive than Economy tickets.
+
+✔️ Flights booked closer to departure dates generally have higher prices.
+
+✔️ Certain airlines consistently maintain premium pricing strategies.
+
+✔️ Flight duration has a positive correlation with ticket price.
+
+✔️ Routes connecting major metropolitan cities tend to exhibit higher fare fluctuations.
+
+---
+
+## 💡 Tips & Tricks for Better Analysis
+
+### 1. Always Clean Data First
+
+Even the best machine learning models fail when data quality is poor.
+
+```python
+df.drop_duplicates(inplace=True)
+df.isnull().sum()
+```
+
+---
+
+### 2. Understand the Distribution Before Modeling
+
+Use histograms and boxplots to detect:
+
+* Outliers
+* Skewness
+* Abnormal values
+
+```python
+sns.histplot(df['price'])
+```
+
+---
+
+### 3. Correlation Does Not Mean Causation
+
+A strong correlation between duration and price doesn't necessarily mean duration alone determines cost.
+
+Always validate findings using domain knowledge.
+
+---
+
+### 4. Look Beyond Averages
+
+Instead of only checking mean prices:
+
+```python
+df.groupby('airline')['price'].describe()
+```
+
+This reveals variability, quartiles, and outliers.
+
+---
+
+### 5. Use Visualizations to Tell a Story
+
+Good data analysis is not about creating charts.
+
+It is about answering questions such as:
+
+* Why are some airlines more expensive?
+* Which routes generate higher revenue?
+* When should customers book tickets?
+
+---
+
+### 6. Think Like a Business Analyst
+
+Ask:
+
+* Which airline earns the highest revenue?
+* Which route should be promoted?
+* How can ticket pricing be optimized?
+
+These questions convert data analysis into business value.
+
+---
+
+## 🚀 Future Enhancements
+
+* Flight Price Prediction using Machine Learning
+* Customer Segmentation
+* Interactive Dashboard using Streamlit
+* Real-Time Flight Data Integration
+* Demand Forecasting Models
+* Revenue Optimization Analysis
+
+---
+
+## ▶️ How to Run
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+### Install Dependencies
+
+```bash
+pip install numpy pandas matplotlib seaborn
+```
+
+### Launch Jupyter Notebook
+
+```bash
+jupyter notebook Flight_Booking_Project.ipynb
+```
+
+Make sure `Flight_Booking.csv` is present in the same directory as the notebook.
+
+---
+
+## 🎓 Learning Outcomes
+
+By completing this project, you will gain practical experience in:
+
+* Data Cleaning
+* Exploratory Data Analysis (EDA)
+* Data Visualization
+* Statistical Interpretation
+* Business Analytics
+* Insight Generation
+* Python for Data Science
+
+---
+
+## 👩‍💻 Author
+
+**Prathibha D**
+
+B.E. Computer Science & Engineering
+Aspiring AI/ML Engineer | Data Science Enthusiast
+
+---
+
+## 📜 License
+
+This project is open-source and intended for educational, research, and learning purposes.
+
+⭐ If you found this project useful, consider giving the repository a star!
+
